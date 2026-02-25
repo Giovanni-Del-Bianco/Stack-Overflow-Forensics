@@ -1,7 +1,7 @@
 # Stack-Based Buffer Overflow: Memory Analysis & Precision Exploitation
 
-> **University Project | Data Security Systems Laboratory**
-> **MSc Cybersecurity**
+> **University Project | Data Security Systems Laboratory** 
+> **| MSc Cybersecurity**
 > A methodological deep dive into discovering, analyzing, and precisely exploiting a classic stack-based buffer overflow vulnerability to hijack control flow.
 
 | Info | Details |
@@ -169,7 +169,6 @@ pwndbg> run
 At this point, the program pauses at the very beginning of its execution (`int privileges=0;`).
 
 **Analyzing the Clean Stack:**
-*(Insert your `gdb_stack_before.png` here)*
 ![GDB Stack Before Overflow](img/gdb_stack_before.jpeg)
 
 *   **The Baseline:** We use the command `x/20gx $rsp` to examine the top 20 blocks (8 bytes each) of the stack starting from the Stack Pointer (`$rsp`).
@@ -187,7 +186,6 @@ Enter some text: AAAAAAAA
 We send exactly 8 'A' characters (`0x41` in ASCII hex). The program pauses again after reading our input.
 
 **Analyzing the Overwritten Stack:**
-*(Insert your `gdb_stack_after.png` here)*
 ![GDB Stack After Overflow](img/gdb_stack_after.jpeg)
 
 *   **Locating the Buffer:** We run `x/20gx $rsp` again. The difference is stark. At address `0x7fffffffde40`, we clearly see `0x4141414141414141`. We have definitively found the starting address of our `buffer[64]`.
@@ -277,8 +275,7 @@ gdb ./overflow0
 pwndbg> run < exploits/attack.txt
 ```
 
-*(Insert your `success_execution.png` here)*
-![Exploit Success Execution](img/success_execution.png)
+![Exploit Success Execution](img/success_execution.jpeg)
 
 ### 🏆 Results Analysis
 The output confirms complete success:
@@ -327,8 +324,8 @@ This project successfully demonstrated the mechanics of a stack-based buffer ove
 ### Steps
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/[YourUsername]/Buffer-Overflow-Exploitation.git
-    cd Buffer-Overflow-Exploitation
+    git clone https://github.com/Giovanni-Del-Bianco/Stack-Overflow-Forensics.git
+    cd Stack-Overflow-Forensics
     ```
 
 2.  **Compile the vulnerable target:**
